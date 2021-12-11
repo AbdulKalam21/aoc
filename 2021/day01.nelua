@@ -1,0 +1,21 @@
+require "io"
+require "sequence"
+
+local input: sequence(integer)
+input:push(1)
+
+for line in io.lines("inputs/day01.txt") do
+    input:push(tointeger(line))
+end
+
+
+-- Part 1
+do
+    local increases = 0
+    for i = 1, #input do
+        if input[i+1] > input[i] then
+            increases = increases + 1
+        end
+    end 
+    print(increases)
+end
